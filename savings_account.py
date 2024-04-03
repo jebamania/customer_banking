@@ -34,13 +34,15 @@ class savings_Account(Account):
         # # Pass the updated_balance to the set balance method using the instance of the SavingsAccount class.
 
         for _ in range(int(months)):
-            interest_earned = ((self.balance * interest_rate)/12)
+            interest_earned = ((self.balance * (interest_rate/100))/12)
             total_interest_earned += interest_earned
             self.set_balance( self.balance + interest_earned )
 
 
         # # Pass the interest_earned to the set interest method using the instance of the SavingsAccount class.
         # new_acct.set_interest(interest_earned)
+        # Using Inheritance!
+        self.set_interest(total_interest_earned)
 
         # # Return the updated balance and interest earned.
         # return [new_acct.balance, total_interest_earned]

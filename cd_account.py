@@ -56,7 +56,6 @@ class cd_Account(Account):
 
         for _ in range(int(months)):
             interest_earned = ((self.balance * (interest_rate/100))/12)
-            print(interest_earned)
             total_interest_earned += interest_earned
             self.set_balance( self.balance + interest_earned )
 
