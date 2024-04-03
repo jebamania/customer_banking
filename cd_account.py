@@ -54,7 +54,7 @@ class cd_Account(Account):
         ### Try again with class inheritance
         total_interest_earned = 0
 
-        for _ in range(months):
+        for _ in range(int(months)):
             interest_earned = ((self.balance * (interest_rate/100))/12)
             print(interest_earned)
             total_interest_earned += interest_earned
@@ -62,5 +62,5 @@ class cd_Account(Account):
 
         self.set_interest(total_interest_earned)
 
-        # Return the updated balance and interest earned.
+        # Return the updated balance and interest earned. No longer necessary with inheritance!
         # return [self.balance, total_interest_earned]

@@ -28,15 +28,15 @@ class savings_Account(Account):
 
         # # Calculate interest earned
         
-        # total_interest_earned = 0
+        total_interest_earned = 0
 
         # # Update the savings account balance by adding the interest earned
         # # Pass the updated_balance to the set balance method using the instance of the SavingsAccount class.
 
-        # for _ in range(int(months)):
-        #     interest_earned = ((new_acct.balance * interest_rate)/12)
-        #     total_interest_earned += interest_earned
-        #     new_acct.set_balance( new_acct.balance + interest_earned )
+        for _ in range(int(months)):
+            interest_earned = ((self.balance * interest_rate)/12)
+            total_interest_earned += interest_earned
+            self.set_balance( self.balance + interest_earned )
 
 
         # # Pass the interest_earned to the set interest method using the instance of the SavingsAccount class.
@@ -44,25 +44,30 @@ class savings_Account(Account):
 
         # # Return the updated balance and interest earned.
         # return [new_acct.balance, total_interest_earned]
-    
-        ## Trying again with inheritance & list comprehension:
 
-        # 5
+        # Return the updated balance and interest earned. No longer necessary with inheritance!
+        #return [self.balance, total_interest_earned]
+    
+
+        #
+        ## Trying again with inheritance & list comprehension:
+        ## The below formula does not calculate correctly, but I tried!
+        #
+
 
         # amount of interest earned for each period
-        int_func = lambda n: self.balance * ( (1+( (interest_rate/100) / 12))**n-1)
+        #dec_interest = interest_rate/100
+        #int_func = lambda n: self.balance * ( (1+( dec_interest / 12))**n-1)
+        
         # specific formula example
         # 100 * ( (1+(.12 / 12))**2-1)
         # formula: P x (1 + r/n)**nt
 
-        int_over_time = [int_func(x) for x in range(1, 1+months)]
-        print(int_over_time)
-        total_interest_earned = sum(int_over_time)  
+        # int_over_time = [int_func(x) for x in range(1, 1+months)]
+        # print(int_over_time)
+        # total_interest_earned = sum(int_over_time)  
             
-        self.set_balance( self.balance + total_interest_earned )
+        # self.set_balance( self.balance + total_interest_earned )
         
         
-        self.set_interest(total_interest_earned)
-
-        # Return the updated balance and interest earned.
-        # return [self.balance, total_interest_earned]
+        # self.set_interest(total_interest_earned)

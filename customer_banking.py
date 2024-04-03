@@ -4,6 +4,13 @@
 from cd_account import cd_Account
 from savings_account import savings_Account
 
+def checkTypeDigit(in_value):
+    if in_value.isdigit():
+        return in_value
+    else:
+        raise Exception('Unable to process based on inputs. Please make sure it is a number.')
+        
+
 # Define the main function
 def main():
     """This function prompts the user to enter the savings and cd account balance, interest rate,
@@ -12,9 +19,14 @@ def main():
     """
     # Prompt the user to set the savings balance, interest rate, and months for the savings account.
     # ADD YOUR CODE HERE
-    savings_balance = float(input('Enter your savings Balance:\n'))
-    savings_interest = float(input('Enter your Interest Rate:\n'))
-    savings_maturity = int(input('Enter your savings Maturity:\n'))
+    in_balance = checkTypeDigit(input('Enter your savings Balance:\n'))
+    savings_balance = float(in_balance)
+    
+    in_interest = checkTypeDigit(input('Enter your Interest Rate:\n'))
+    savings_interest = float(in_interest)
+    
+    in_maturity = checkTypeDigit(input('Enter your savings Maturity in months:\n'))
+    savings_maturity = int(in_maturity)
 
     my_savings_acct = savings_Account(savings_balance, 0)
 
@@ -28,9 +40,15 @@ def main():
 
     # Prompt the user to set the CD balance, interest rate, and months for the CD account.
     # ADD YOUR CODE HERE
-    cd_balance = float(input( 'What is your cd Balance:\n'))
-    cd_interest = float(input( 'What is your cd Interest:\n'))
-    cd_maturity = int(input( 'What is your cd Maturity:\n'))
+
+    in_balance = checkTypeDigit(input( 'What is your cd Balance:\n'))
+    cd_balance = float(in_balance)
+    
+    in_interest = checkTypeDigit(input( 'What is your cd Interest:\n'))
+    cd_interest = float(in_interest)
+    
+    in_maturity = checkTypeDigit(input( 'What is your cd Maturity in months:\n'))
+    cd_maturity = int(in_maturity)
     
     my_cd_acct = cd_Account(cd_balance, 0)
 
